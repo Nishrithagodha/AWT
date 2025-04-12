@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<h1>
+    E-commerce platform
+</h1>
+
+<form>
+  <label>Name</label>
+  <input type=string #name placeholder="Enter product name">
+
+  <label>Price</label>
+  <input type=Number #price placeholder="Enter product Price">
+
+  <label>Description</label>
+  <input type=string #description placeholder="Enter product Description">
+
+  <label>category</label>
+  <input type=string #catergory placeholder="Enter product category">
+
+  <label>stock</label>
+  <input type=Number #stock placeholder="Enter product stock">
+
+  <button class="button" (click) ='addProduct(name,price,description,category,stock)'>Add Product</button>
+
+</form>
+
+<table border="1">
+    <tr>
+      <td>Product Name</td>
+      <td>Price</td>
+      <td>Description</td>
+      <td>Category</td>
+      <td>Stock</td>
+    </tr>
+
+    <tr *ngFor = "let product of products">
+      <td>{{product.name}}</td>
+      <td> {{product.price}}</td>
+      <td> {{product.description}}</td>
+      <td> {{product.category}}</td>
+      <td> {{product.stock}}</td>
+      <td>
+        <button class="button" (click) ='deleteProduct(product)'>Delete</button>
+        <button class="button" (click) ='editProduct(product)'>Edit</button>
+      </td>
+    </tr>
+</table>
+
+<form *ngIf="selectedproduct">
+  <label>Name</label>
+  <input type=string #name placeholder="Enter product name" [(ngModel)]="selectedproduct.name">
+  
+  <label>Price</label>
+  <input type=Number #price placeholder="Enter product Price" [(ngModel)]="selectedproduct.price">
+
+  <label>Description</label>
+  <input type=string #description placeholder="Enter product Description" [(ngModel)]="selectedproduct.description">
+
+  <label>category</label>
+  <input type=string #category placeholder="Enter product category" [(ngModel)]="selectedproduct.category">
+
+  <label> stock</label>
+  <input type=Number #stock placeholder="Enter product stock" [(ngModel)]="selectedproduct.stock">
+
+  <button class="button" (click) ='updateProduct()'>Update</button>
+
+</form>
+
+<body>
+  
+</body>
+</html>

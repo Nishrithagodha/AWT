@@ -1,0 +1,31 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+@Injectable({
+  providedIn: 'root'
+})
+export class ProdserviceService {
+
+  constructor(private http: HttpClient) {} 
+
+  getproduct(){
+    return this.http.get('http://localhost:2000/api/products')
+
+  }
+
+  addproduct(){
+    return this.http.post('http://localhost:2000/api/products',{})
+  }
+
+  deleteproduct(){
+    return this.http.delete('http://localhost:2000/api/products/1')
+  }
+
+  editproduct(){
+    return this.http.put('http://localhost:2000/api/products/1',{})
+  }
+
+  updateproduct(){
+    return this.http.put('http://localhost:2000/api/products/1',{})
+  }
+
+}
